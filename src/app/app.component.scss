@@ -7,7 +7,21 @@
     grid-area: logo;
     margin: 0 auto;
     height: 100%;
+    flex: 1 1 auto;
 }
+
+#login .login-logo {
+    width: 25em;
+    max-width: 100%;
+    padding-top: 5em;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+}
+
 #main-toolbar .mat-menu-trigger {
     grid-area: menu;
     margin-left: auto;

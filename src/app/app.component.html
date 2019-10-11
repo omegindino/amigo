@@ -20,6 +20,12 @@
   <router-outlet></router-outlet>
 </div>
 <ng-template #showLogin>
-  <p>Please log in.</p>
-  <button mat-raised-button color="primary" (click)="login()">Log in with Google</button>
+  <main id="login">
+    <section>
+      <img class="login-logo" src="assets/images/amigo-logo.svg">
+    </section>
+    <section>
+      <button mat-raised-button color="primary" (click)="login()">Log in with Google</button>
+    </section>
+  </main>
 </ng-template>
