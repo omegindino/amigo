@@ -1,5 +1,4 @@
 <div *ngIf="authService.user | async as user; else showLogin">
-  <h1>Hello {{ user.displayName }}!</h1>
   <router-outlet></router-outlet>
   <button (click)="logout()">Log out</button>
 </div>
@@ -7,6 +6,3 @@
   <p>Please log in.</p>
   <button (click)="login()">Log in with Google</button>
 </ng-template>
-
-
-
