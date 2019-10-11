@@ -1,10 +1,13 @@
+<mat-toolbar id="main-toolbar">
+  <img class="logo" src="assets/images/amigo-logo.svg">
+</mat-toolbar>
 <div *ngIf="authService.user | async as user; else showLogin">
   <router-outlet></router-outlet>
-  <button (click)="logout()">Log out</button>
+  <button mat-raised-button (click)="logout()">Log out</button>
 </div>
 <ng-template #showLogin>
   <p>Please log in.</p>
-  <button (click)="login()">Log in with Google</button>
+  <button mat-raised-button color="primary" (click)="login()">Log in with Google</button>
 </ng-template>
 
 
