@@ -1,4 +1,14 @@
+#main-toolbar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". logo menu";
+}
 #main-toolbar .logo {
+    grid-area: logo;
+    margin: 0 auto;
     height: 100%;
-    flex: 1 1 auto;
+}
+#main-toolbar .mat-menu-trigger {
+    grid-area: menu;
+    margin-left: auto;
 }
