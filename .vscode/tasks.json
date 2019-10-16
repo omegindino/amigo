@@ -9,10 +9,7 @@
                 "focus": true,
                 "panel": "dedicated"
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "problemMatcher": {
                 "owner": "typescript",
                 "source": "ts",
@@ -33,5 +30,30 @@
                 }
             }
         },
+        {
+            "label": "Build",
+            "type": "npm",
+            "script": "build",
+            "group": "build"
+        },
+        {
+            "label": "Build (Production)",
+            "type": "npm",
+            "script": "build-prod",
+            "group": "build"
+        },
+        {
+            "label": "Deploy to Firebase",
+            "type": "shell",
+            "command": "firebase",
+            "args": [
+                "deploy"
+            ],
+            "dependsOn": "Build (Production)",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
     ]
 }
