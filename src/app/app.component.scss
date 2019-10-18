@@ -1,6 +1,9 @@
 main {
     height: 100%;
 }
+#login {
+    padding-top: 25vh;
+}
 #login .login-button {
     display: block;
     margin: 0 auto;
@@ -9,7 +12,6 @@ main {
     display: block;
     width: 25em;
     max-width: 100%;
-    padding-top: 5em;
     margin: 0 auto;
 }
 #main-toolbar {
