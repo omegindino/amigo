@@ -18,16 +18,15 @@
     </mat-menu>
   </mat-toolbar>
   <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
+
   <router-outlet></router-outlet>
 </div>
 
 <ng-template #showLogin>
-  <main id="login" class="mat-app-background">
-    <section>
+  <main id="main-login" class="mat-app-background">
+    <section id="login">
       <img class="login-logo" src="assets/images/amigo-logo.svg">
-    </section>
-    <section>
-      <button mat-raised-button color="primary" (click)="login()">Log in with Google</button>
+      <button mat-raised-button color="primary" (click)="login()" class="login-button">Log in with Google</button>
     </section>
   </main>
 </ng-template>
