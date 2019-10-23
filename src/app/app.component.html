@@ -19,6 +19,16 @@
   </mat-toolbar>
   <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
 
+  <mat-sidenav-container>
+    <mat-sidenav [mode]="over">
+      Sidenav content
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <button mat-button (click)="sidenav.toggle()">Borgar</button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
   <router-outlet></router-outlet>
 </div>
 
