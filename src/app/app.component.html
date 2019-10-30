@@ -6,9 +6,10 @@
   
     <mat-sidenav-content>
       <mat-toolbar id="main-toolbar">
-          <button mat-button (click)="sidenav.toggle()">
+          <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
           </button>
+
           <img class="logo" src="assets/images/amigo-logo.svg">
 
           <button id="menu-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
