@@ -29,3 +29,14 @@ main {
     grid-area: menu;
     margin-left: auto;
 }
+
+.login-background {
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(212, 91, 223),
+        rgb(161, 55, 182),
+        rgb(151, 41, 137),
+        rgb(135, 26, 156),
+        rgb(87, 24, 160)
+    );
+}
