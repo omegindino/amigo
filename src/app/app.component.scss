@@ -3,31 +3,35 @@ main {
 }
 #login {
     padding-top: 25vh;
-}
-#login .login-button {
-    display: block;
-    margin: 0 auto;
-}
-#login .login-logo {
-    display: block;
-    width: 25em;
-    max-width: 100%;
-    margin: 0 auto;
+    .login-button {
+        display: block;
+        margin: 0 auto;
+    }
+    .login-logo {
+        display: block;
+        width: 25em;
+        max-width: 100%;
+        margin: 0 auto;
+    }
 }
 #main-toolbar {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: ". logo menu";
-}
-#main-toolbar .logo {
-    grid-area: logo;
-    margin: 0 auto;
-    height: 100%;
-    flex: 1 1 auto;
-}
-#main-toolbar .mat-menu-trigger {
-    grid-area: menu;
-    margin-left: auto;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "main-menu logo settings-menu";
+    .logo {
+        grid-area: logo;
+        margin: 0 auto;
+        height: 100%;
+        flex: 1 1 auto;
+    }
+    #main-menu-trigger {
+        grid-area: main-menu;
+    }
+    #settings-trigger {
+        grid-area: settings-menu;
+        margin-left: auto;
+    }
 }
 
 .login-background {

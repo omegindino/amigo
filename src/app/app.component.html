@@ -1,25 +1,39 @@
 <div *ngIf="authService.user | async as user; else showLogin">
-  <mat-toolbar id="main-toolbar">
-    <img class="logo" src="assets/images/amigo-logo.svg">
-
-    <button id="menu-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span>
-      </button>
-      <button mat-menu-item>
-          <mat-icon>close</mat-icon>
-          <span (click)="logout()">Log out</span>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over">
+      Sidenav content
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar id="main-toolbar">
+        <button id="main-menu-trigger" mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
-    </mat-menu>
-  </mat-toolbar>
-  <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
 
-  <router-outlet></router-outlet>
+        <img class="logo" src="assets/images/amigo-logo.svg">
+
+        <button id="settings-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+
+          <button mat-menu-item>
+              <mat-icon>close</mat-icon>
+              <span (click)="logout()">Log out</span>
+            </button>
+        </mat-menu>
+
+      </mat-toolbar>
+      <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
+      
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 
 <ng-template #showLogin>

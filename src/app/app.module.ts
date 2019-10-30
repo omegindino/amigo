@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HomeComponent } from './home/home.component';
 
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatSidenavModule,
     MatIconModule,
     MatProgressBarModule,
   ],
