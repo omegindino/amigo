@@ -17,15 +17,19 @@ main {
 #main-toolbar {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: ". logo menu";
+    grid-template-rows: 1fr;
+    grid-template-areas: "main-menu logo settings-menu";
     .logo {
         grid-area: logo;
         margin: 0 auto;
         height: 100%;
         flex: 1 1 auto;
     }
-    .mat-menu-trigger {
-        grid-area: menu;
+    #main-menu-trigger {
+        grid-area: main-menu;
+    }
+    #settings-trigger {
+        grid-area: settings-menu;
         margin-left: auto;
     }
 }
