@@ -6,29 +6,32 @@
   
     <mat-sidenav-content>
       <mat-toolbar id="main-toolbar">
-          <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
 
-          <img class="logo" src="assets/images/amigo-logo.svg">
+        <img class="logo" src="assets/images/amigo-logo.svg">
 
-          <button id="menu-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
+        <button id="menu-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>settings</mat-icon>
-              <span>Settings</span>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+
+          <button mat-menu-item>
+              <mat-icon>close</mat-icon>
+              <span (click)="logout()">Log out</span>
             </button>
-            <button mat-menu-item>
-                <mat-icon>close</mat-icon>
-                <span (click)="logout()">Log out</span>
-              </button>
-          </mat-menu>
-        </mat-toolbar>
-        <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
-        <p>mamma þín</p>
+        </mat-menu>
+
+      </mat-toolbar>
+      <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
+      
+      <p>mamma þín</p>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
