@@ -1,11 +1,11 @@
 <main class="mat-app-background">
     <section id="profiles">
-        <figure class="profile">
-            <img src="http://orig11.deviantart.net/8fb6/f/2014/142/a/0/best_shrek_face_by_mrlorgin-d7jaspk.jpg" alt="Shrek">
+        <figure *ngFor="let profile of profiles" class="profile">
+            <img src="{{ profile.imageUrl }}" alt="{{ profile.name }}">
             <figcaption>
-                <span class="name">Shrek</span>
-                <span class="age">50</span><br>
-                <span class="location">The Swamp</span>
+                <span class="name">{{ profile.name }}</span>
+                <span class="age">{{ profile.age }}</span><br>
+                <span class="location">{{ profile.location }}</span>
             </figcaption>
         </figure>
     </section>
