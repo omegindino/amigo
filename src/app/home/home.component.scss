@@ -5,24 +5,12 @@ main {
     height: 100%;
     padding: 1em;
 }
+.profiles {
+    display: grid;
+    gap: 1em;
+}
 .profile {
-    border: 2px solid $accent;
-    background-color: $accent;
-    border-radius: 1em;
-    overflow: hidden;
     width: 80%;
     max-width: 20em;
-    text-align: center;
     margin: 0 auto;
-    img {
-        width: 100%;
-    }
-    figcaption {
-        margin: 0.5em 0;
-        font-size: 1.5em;
-        // Separate name and age
-        .name::after {
-            content: ", "
-        }
-    }
 }
