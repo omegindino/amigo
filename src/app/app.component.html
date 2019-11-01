@@ -1,7 +1,14 @@
 <div *ngIf="authService.user | async as user; else showLogin">
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over">
-      Sidenav content
+      <mat-nav-list class="sidenav-list">
+        <a mat-list-item href="#" id="sidenav-list"><mat-icon>account_circle</mat-icon><p id="sidenav-text">Profile</p></a>
+        <mat-divider></mat-divider>
+        <a mat-list-item href="#" id="sidenav-list"><mat-icon>assignment</mat-icon><p id="sidenav-text">Board</p></a>
+        <mat-divider></mat-divider>
+        <a mat-list-item href="#" id="sidenav-list"><mat-icon>chat_bubble</mat-icon><p id="sidenav-text">Chat</p></a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
     </mat-sidenav>
   
     <mat-sidenav-content>
