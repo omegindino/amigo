@@ -1,17 +1,22 @@
 <main class="mat-app-background">
     <section class="profiles">
-        <mat-card *ngFor="let profile of profiles" class="profile">
-            <mat-card-title>
-                <span class="name">{{ profile.name }}</span>,
-                <span class="age">{{ profile.age }}</span>
-            </mat-card-title>
-            <mat-card-subtitle class="location">{{ profile.location }}</mat-card-subtitle>
-            <img mat-card-image src="{{ profile.imageUrl }}" alt="{{ profile.name }}">
-            <mat-card-content>{{ profile.description }}</mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button color="primary">Like</button>
-                <button mat-raised-button color="accent">Next</button>
-            </mat-card-actions>
-        </mat-card>
+        <ng-template *ngFor="let profile of profiles; let i = index" [ngIf]="currentProfileId == i">
+            <mat-card id="profile-{{i}}" class="profile">
+                <mat-card-title>
+                    <span class="name">{{ profile.name }}</span>,
+                    <span class="age">{{ profile.age }}</span>
+                </mat-card-title>
+                <mat-card-subtitle class="location">{{ profile.location }}</mat-card-subtitle>
+                <img mat-card-image src="{{ profile.imageUrl }}" alt="{{ profile.name }}">
+                <mat-card-content>{{ profile.description }}</mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="like(profile)">Like</button>
+                    <button mat-raised-button color="accent" (click)="nextProfile()">Next</button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-template>
+        <ng-template [ngIf]="allProfilesViewed">
+            <h2>You have viewed all profiles!</h2>
+        </ng-template>
     </section>
 </main>
