@@ -19,11 +19,14 @@ main {
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "main-menu logo settings-menu";
-    .logo {
+    .logo-container {
+        height: inherit;
+        .logo {
+            margin: 0 auto;
+            height: 100%;
+            width: 100%;
+        }
         grid-area: logo;
-        margin: 0 auto;
-        height: 100%;
-        flex: 1 1 auto;
     }
     #main-menu-trigger {
         grid-area: main-menu;
