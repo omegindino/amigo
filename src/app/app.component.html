@@ -18,7 +18,9 @@
         </button>
 
         <div class="logo-container">
-          <img class="logo" src="assets/images/amigo-logo.svg">
+          <a [routerLink]="['/']">
+            <img class="logo" src="assets/images/amigo-logo.svg">
+          </a>
         </div>
 
         <button id="settings-trigger" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
