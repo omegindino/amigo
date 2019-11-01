@@ -44,3 +44,14 @@ main {
         rgb(87, 24, 160)
     );
 }
+
+#sidenav-list {
+    display: flex;
+    justify-content: center;
+    padding: .5em 0em .5em 0em;
+    min-width: 20em;
+}
+
+.sidenav-list {
+    padding: 0;
+}
