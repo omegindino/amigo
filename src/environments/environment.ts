@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyB3GVRhB7U2M5cp7IK1uGqprMFwaOEDqoU',
-    authDomain: 'amigo-c73c8.firebaseapp.com',
-    databaseURL: 'https://amigo-c73c8.firebaseio.com',
-    projectId: 'amigo-c73c8',
-    storageBucket: '',
-    messagingSenderId: '230512385233',
-    appId: '1:230512385233:web:bc99d64c0594b2f7bbf9f0'
+    apiKey: 'AIzaSyDpqPnW9y7lJqwz0fDO0ey1J-1O_-YWrZg',
+    authDomain: 'amigo-dev-29dd2.firebaseapp.com',
+    databaseURL: 'https://amigo-dev-29dd2.firebaseio.com',
+    projectId: 'amigo-dev-29dd2',
+    storageBucket: 'amigo-dev-29dd2.appspot.com',
+    messagingSenderId: '1094400771024',
+    appId: '1:1094400771024:web:cce00dffba7fd4dd57efd5',
+    measurementId: 'G-S78TC8ZSDL'
   }
 };
 
