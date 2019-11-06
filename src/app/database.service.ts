@@ -2,17 +2,21 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Profile } from './profile';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
-  profileCollectionRef: AngularFirestoreCollection<Profile>;
-  profiles$: Observable<Profile[]>;
+  profileCollection: AngularFirestoreCollection<Profile>;
+  profiles: Observable<Profile[]>;
 
-  constructor(private firestore: AngularFirestore) {
-    this.profileCollectionRef = this.firestore.collection<Profile>('users');
-    this.profiles$ = this.profileCollectionRef.valueChanges();
-    this.profiles$.forEach(profile => console.log(profile));
+  constructor(private afs: AngularFirestore) {
+    this.profileCollection = this.afs.collection<Profile>('users');
+    this.profiles = this.profileCollection.valueChanges();
+  }
+
+  addProfile(profile: Profile) {
+    this.profileCollection.add(profile);
   }
 }
