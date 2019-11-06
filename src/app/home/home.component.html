@@ -1,6 +1,6 @@
 <main class="mat-app-background">
     <section class="profiles">
-        <ng-template *ngFor="let profile of profiles; let i = index" [ngIf]="currentProfileId == i">
+        <ng-template *ngFor="let profile of profiles$ | async; let i = index" [ngIf]="currentProfileId == i">
             <mat-card id="profile-{{i}}" class="profile">
                 <mat-card-title>
                     <span class="name">{{ profile.name }}</span>,
