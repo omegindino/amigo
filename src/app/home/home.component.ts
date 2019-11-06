@@ -27,7 +27,7 @@ export class HomeComponent {
   nextProfile() {
     this.currentProfileId++;
     // Show user that they have viewed all profiles
-    // TODO: Find way to count profiles, this doesn't work
+    // FIXME: Find way to count profiles, this doesn't work
     if (this.currentProfileId >= this.profiles.length) {
       this.allProfilesViewed = true;
     }
