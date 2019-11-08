@@ -60,10 +60,9 @@ main {
 }
 
 .main-footer {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
     color: white;
-    padding: 3em;
+    padding: 1em;
+    text-align: center;
     background-color: $warn;
     img {
         max-height: 7em;
@@ -75,12 +74,12 @@ main {
             padding-right: 1em;
         }
     }
+    a,
     a:link,
     a:visited {
-        text-decoration-style: none;
-    }
-    @media screen and (min-width: 40em) {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        display: block;
+        padding: 1em;
+        text-decoration: none;
+        color: white;
     }
 }
