@@ -5,7 +5,7 @@ export const environment = {
     authDomain: 'amigo-c73c8.firebaseapp.com',
     databaseURL: 'https://amigo-c73c8.firebaseio.com',
     projectId: 'amigo-c73c8',
-    storageBucket: '',
+    storageBucket: 'amigo-c73c8.appspot.com',
     messagingSenderId: '230512385233',
     appId: '1:230512385233:web:bc99d64c0594b2f7bbf9f0'
   }
