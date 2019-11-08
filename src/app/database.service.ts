@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Profile } from './profile';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'

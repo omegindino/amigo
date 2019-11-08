@@ -9,13 +9,19 @@ import { Data } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   profiles: Observable<Profile[]>;
   currentProfileId = 0;
   allProfilesViewed = false;
+  profileCount: number;
 
   constructor(public afs: DatabaseService) {
     this.profiles = this.afs.profiles;
+  }
+
+  ngOnInit() {
+    // Get number of profiles
+    this.afs.profileCollection.snapshotChanges().forEach(c => this.profileCount = c.length);
   }
 
   like(profile: Profile) {
@@ -27,8 +33,7 @@ export class HomeComponent {
   nextProfile() {
     this.currentProfileId++;
     // Show user that they have viewed all profiles
-    // FIXME: Find way to count profiles, this doesn't work
-    if (this.currentProfileId >= this.profiles.length) {
+    if (this.currentProfileId >= this.profileCount) {
       this.allProfilesViewed = true;
     }
   }
