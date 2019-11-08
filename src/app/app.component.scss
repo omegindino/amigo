@@ -75,6 +75,10 @@ main {
             padding-right: 1em;
         }
     }
+    a:link,
+    a:visited {
+        text-decoration-style: none;
+    }
     @media screen and (min-width: 40em) {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
