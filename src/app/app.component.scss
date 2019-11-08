@@ -1,3 +1,5 @@
+@import '~src/variables';
+
 main {
     height: 100%;
 }
@@ -55,4 +57,28 @@ main {
 
 .sidenav-list {
     padding: 0;
+}
+
+.main-footer {
+    color: white;
+    padding: 2em;
+    text-align: center;
+    background-color: $warn;
+    img {
+        max-height: 7em;
+    }
+    p {
+        display: flex;
+        align-items: center;
+        mat-icon {
+            padding-right: 1em;
+        }
+    }
+    a,
+    a:link,
+    a:visited {
+        padding: 1em;
+        text-decoration: none;
+        color: white;
+    }
 }
