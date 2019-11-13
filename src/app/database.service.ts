@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Profile } from './profile';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,10 @@ export class DatabaseService {
   constructor(private afs: AngularFirestore) {
     this.profileCollection = this.afs.collection<Profile>('users');
     this.profiles = this.profileCollection.valueChanges();
+  }
+
+  getCollection(name: string, queryFn?: any) {
+    return this.afs.collection(name, queryFn);
   }
 
   addProfile(profile: Profile) {

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Profile } from '../profile';
 import { DatabaseService } from '../database.service';
 import { Data } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   allProfilesViewed = false;
   profileCount: number;
 
-  constructor(public afs: DatabaseService) {
+  constructor(public afs: DatabaseService, public auth: AuthService) {
     this.profiles = this.afs.profiles;
   }
 
