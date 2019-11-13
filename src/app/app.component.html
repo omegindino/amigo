@@ -18,7 +18,7 @@
         </button>
 
         <div class="logo-container">
-          <a [routerLink]="['/']">
+          <a [routerLink]="['/']"> 
             <img class="logo" src="assets/images/amigo-logo.svg">
           </a>
         </div>
@@ -28,7 +28,7 @@
         </button>
       
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/settings']">
             <mat-icon>settings</mat-icon>
             <span>Settings</span>
           </button>
