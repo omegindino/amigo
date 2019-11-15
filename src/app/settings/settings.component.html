@@ -1,45 +1,41 @@
 <main>
-    <h1>Settings</h1>
-    <h2>Change Profile Image</h2>
-    <div>
-
-    </div>
-
-    <h2>Change Name</h2>
-    <div>
+    <!-- TODO: Implement form submit -->
+    <form id="settings-form">
         <mat-form-field>
-            <input matInput placehodler="Name">
+            <mat-label>Profile photo</mat-label>
+            <input matInput>
         </mat-form-field>
-    </div>
 
-    <h2>Change Description</h2>
-    <div class="desc">
         <mat-form-field>
-            <textarea matInput placeholder="Description"></textarea>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Your name">
         </mat-form-field>
-        <button>Cancel</button>
-        <button>Save</button>
-    </div>
 
-    <h2>Change Location</h2>
-    <div>
         <mat-form-field>
-            <mat-option value="option">Iceland</mat-option>
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Your description"></textarea>
         </mat-form-field>
-    </div>
 
-    <h2>Change Interests</h2>
-    <div>
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Your location">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Interests</mat-label>
+            <input matInput placeholder="Your interests">
+        </mat-form-field>
 
-    </div>
+        <button mat-raised-button color="primary" [formAction]="">Save</button>
 
-    <h2>Delete Account</h2>
-    <!--
-        1. Change profile image
-        2. Change name
-        3. Change description
-        4. Change location
-        5. Change interests
-        6. (Delete account)
-    -->
+        <h2>Delete Account</h2>
+        <!--
+            1. Change profile image
+            2. Change name
+            3. Change description
+            4. Change location
+            5. Change interests
+            6. (Delete account)
+        -->
+    </form>
 </main>

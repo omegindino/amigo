@@ -12,4 +12,8 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateSettings(event: Event) {
+    console.log(event);
+  }
+
 }
