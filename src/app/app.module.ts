@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatFormFieldModule,
     MatDividerModule,
     MatSidenavModule,
     MatIconModule,
