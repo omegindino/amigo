@@ -18,8 +18,6 @@ export class AuthService {
   async login() {
     await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     this.uid = this.afAuth.auth.currentUser.uid;
-    // TODO: Create database entry on sign up
-    // this.db.getCollection('users', ref => )
   }
   logout() {
     this.afAuth.auth.signOut();
