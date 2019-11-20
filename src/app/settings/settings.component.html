@@ -1,0 +1,41 @@
+<main>
+    <!-- TODO: Implement form submit -->
+    <form id="settings-form">
+        <mat-form-field>
+            <mat-label>Profile photo</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Your name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Your description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Your location">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Interests</mat-label>
+            <input matInput placeholder="Your interests">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" [formAction]="">Save</button>
+
+        <h2>Delete Account</h2>
+        <!--
+            1. Change profile image
+            2. Change name
+            3. Change description
+            4. Change location
+            5. Change interests
+            6. (Delete account)
+        -->
+    </form>
+</main>

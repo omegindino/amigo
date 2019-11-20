@@ -15,16 +15,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,7 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatFormFieldModule,
     MatDividerModule,
     MatSidenavModule,
     MatIconModule,
@@ -42,6 +47,7 @@ import { HomeComponent } from './home/home.component';
     MatProgressBarModule,
     MatCardModule,
     AngularFirestoreModule.enablePersistence(),
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
