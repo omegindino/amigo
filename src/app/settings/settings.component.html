@@ -8,22 +8,22 @@
 
         <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Your name">
+            <input matInput placeholder="Your name" value="{{ currentProfile.name }}">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Description</mat-label>
-            <textarea matInput placeholder="Your description"></textarea>
+            <textarea matInput placeholder="Your description" value="{{ currentProfile.description }}"></textarea>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Location</mat-label>
-            <input matInput placeholder="Your location">
+            <input matInput placeholder="Your location" value="{{ currentProfile.location }}">
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Interests</mat-label>
-            <input matInput placeholder="Your interests">
+            <input matInput placeholder="Your interests" value="{{ currentProfile.interests }}">
         </mat-form-field>
 
         <button mat-raised-button color="primary" [formAction]="">Save</button>
