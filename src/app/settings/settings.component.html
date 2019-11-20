@@ -1,41 +1,34 @@
 <main>
-    <!-- TODO: Implement form submit -->
-    <form id="settings-form">
+    <form [formGroup]="settingsForm" id="settings-form" (ngSubmit)="onSubmit()">
+        <h2>Settings</h2>
         <mat-form-field>
             <mat-label>Profile photo</mat-label>
-            <input matInput placeholder="Profile photo URL" value="{{ currentProfile.imageUrl }}">
+            <input matInput placeholder="Profile photo URL" formControlName="imageUrl">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Your name" value="{{ currentProfile.name }}">
+            <input matInput placeholder="Your name" formControlName="name">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Description</mat-label>
-            <textarea matInput placeholder="Your description" value="{{ currentProfile.description }}"></textarea>
+            <textarea matInput placeholder="Your description" formControlName="description"></textarea>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Location</mat-label>
-            <input matInput placeholder="Your location" value="{{ currentProfile.location }}">
+            <input matInput placeholder="Your location" formControlName="location">
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Interests</mat-label>
-            <input matInput placeholder="Your interests" value="{{ currentProfile.interests }}">
+            <input matInput placeholder="Your interests" formControlName="interests">
         </mat-form-field>
 
-        <button mat-raised-button color="primary" [formAction]="">Save</button>
-
-        <h2>Delete Account</h2>
-        <!--
-            1. Change profile image
-            2. Change name
-            3. Change description
-            4. Change location
-            5. Change interests
-            6. (Delete account)
-        -->
+        <div id="buttons">
+            <button type="button" mat-raised-button color="warn" id="delete-account-btn"><mat-icon aria-label="Delete account" title="Delete account">delete_forever</mat-icon></button>
+            <button type="submit" mat-raised-button color="primary" id="save-btn"><mat-icon aria-label="Save" title="Save">save</mat-icon></button>
+        </div>
     </form>
 </main>
