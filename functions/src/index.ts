@@ -12,7 +12,7 @@ admin.initializeApp();
 const db = admin.firestore();
 
 // Make sure user documents have UIDs
-export const updateDocument = functions.firestore.document('users/{uid}').onWrite((change, context) => {
+export const updateDocument = functions.firestore.document('users/{uid}').onUpdate((change, context) => {
     const document = change.after.exists ? change.after.data() : null;
     const previousDocument = change.before.exists ? change.before.data() : null;
     
