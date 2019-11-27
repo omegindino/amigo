@@ -11,14 +11,14 @@ import * as admin from 'firebase-admin';
 admin.initializeApp();
 const db = admin.firestore();
 
-// Set UID on documents
+// Make sure user documents have UIDs
 export const updateDocument = functions.firestore.document('users/{uid}').onWrite((change, context) => {
     const document = change.after.exists ? change.after.data() : null;
     const previousDocument = change.before.exists ? change.before.data() : null;
     
     if (!document && !previousDocument) return null;
 
-    return change.after.ref.set({
+    return change.after.ref.update({
         uid: context.params.uid
     });
 });
@@ -31,7 +31,8 @@ export const createDocument = functions.auth.user().onCreate(user => {
         // If no results are returned, user can be added to the database
         if (snapshot.empty) {
             console.log('No matching documents.');
-            collection.add({
+            // Create document for user
+            collection.doc(user.uid).set({
                 uid: user.uid,
                 name: user.displayName,
                 // age: undefined,
@@ -39,7 +40,7 @@ export const createDocument = functions.auth.user().onCreate(user => {
                 // description: undefined,
                 imageUrl: user.photoURL
             }).then(ref => {
-                console.log('Added document with ID: ', ref.id);
+                console.log('Added document with ID: ', user.uid);
             }).catch(err => {
                 console.log('Error adding document', err);
             });
