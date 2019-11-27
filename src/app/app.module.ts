@@ -29,7 +29,7 @@ import { SettingsComponent } from './settings/settings.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
     SettingsComponent
   ],
   imports: [
