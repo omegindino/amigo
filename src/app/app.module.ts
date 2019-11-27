@@ -20,6 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SettingsComponent } from './settings/settings.component';
@@ -28,6 +29,7 @@ import { SettingsComponent } from './settings/settings.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    ProfileComponent,
     SettingsComponent
   ],
   imports: [

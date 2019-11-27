@@ -1,0 +1,13 @@
+
+<main>
+    <mat-card id="profile-{{i}}" class="profile">
+        <mat-card-title>
+            <span class="name">{{ profile.name }}</span>,
+            <span class="age">{{ profile.age }}</span>
+        </mat-card-title>
+        <mat-card-subtitle class="location">{{ profile.location }}</mat-card-subtitle>
+        <img mat-card-image src="{{ profile.imageUrl }}" alt="{{ profile.name }}">
+        <mat-card-content>{{ profile.description }}</mat-card-content>
+    </mat-card>
+</main>
+      
