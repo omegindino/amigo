@@ -96,8 +96,19 @@ main {
     mat-list-item {
         padding: .7em;
     }
-    #offline {
+    #onlineList {
+        padding: 0;
+        opacity: 100%;
+    }
+    #offlineList {
+        padding: 0;
         opacity: 30%;
+    }
+    hr {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        max-width: 8em;
     }
     background-color: #212121;
 }
