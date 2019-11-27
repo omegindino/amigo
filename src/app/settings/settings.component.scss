@@ -1,0 +1,15 @@
+main {
+    margin: 0 auto;
+    max-width: 60em;
+    padding: 1em;
+}
+.desc {
+    min-width: 6em;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 30em;
+    margin: 0 auto;
+}
