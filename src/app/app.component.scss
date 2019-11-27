@@ -82,3 +82,26 @@ main {
         color: white;
     }
 }
+
+.friendsList {
+    margin: 1em;
+    padding: 0;
+    border-radius: 1em;
+    img {
+        margin-right: 1em;
+        border: 2px solid white;
+        max-width: 3em;
+        border-radius: 50%;
+    }
+    mat-list-item {
+        padding: .7em;
+    }
+    #offline {
+        opacity: 30%;
+    }
+    background-color: #212121;
+}
+
+#yourFriends {
+    padding-left: 1em;
+}
