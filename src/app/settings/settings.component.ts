@@ -32,7 +32,7 @@ export class SettingsComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Go through profiles and find user's own profile
     this.db.profiles.forEach(profiles => profiles.forEach(profile => {
       if (!this.auth.uid) {
@@ -42,7 +42,9 @@ export class SettingsComponent implements OnInit {
         this.currentProfile = profile;
         return;
       }
-    }));
+    })).then(() => console.log('profile found', this.currentProfile));
+
+    setTimeout(() => console.log(this.currentProfile), 0);
 
     // TODO: Make run after initializing currentProfile
     this.settingsForm.setValue({
