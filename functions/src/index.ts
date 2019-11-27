@@ -11,6 +11,22 @@ import * as admin from 'firebase-admin';
 admin.initializeApp();
 const db = admin.firestore();
 
+// Set UID on documents
+export const updateDocument = functions.firestore.document('users/{uid}').onWrite((change, context) => {
+    const document = change.after.exists ? change.after.data() : null;
+    const previousDocument = change.before.exists ? change.before.data() : null;
+    
+    if (!document && !previousDocument) return null;
+
+    let uid = '';
+    if (document && document.uid) uid = document.uid;
+    else if (previousDocument && previousDocument.uid) uid = previousDocument.uid;
+
+    return change.after.ref.set({
+        uid: uid
+    });
+});
+
 // Create document in database on account creation
 export const createDocument = functions.auth.user().onCreate(user => {
     const collection = db.collection('users');
