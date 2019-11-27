@@ -18,12 +18,8 @@ export const updateDocument = functions.firestore.document('users/{uid}').onWrit
     
     if (!document && !previousDocument) return null;
 
-    let uid = '';
-    if (document && document.uid) uid = document.uid;
-    else if (previousDocument && previousDocument.uid) uid = previousDocument.uid;
-
     return change.after.ref.set({
-        uid: uid
+        uid: context.params.uid
     });
 });
 
