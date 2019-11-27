@@ -29,6 +29,6 @@ export class DatabaseService {
   }
 
   updateProfile(profile: Profile, uid: string) {
-    this.profileCollection.doc(uid).set(profile);
+    this.profileCollection.doc(uid).update(profile);
   }
 }
