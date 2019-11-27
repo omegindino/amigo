@@ -20,7 +20,15 @@ export class DatabaseService {
     return this.afs.collection(name, queryFn);
   }
 
+  getProfile(uid: string) {
+    return this.profileCollection.doc(uid).get();
+  }
+
   addProfile(profile: Profile) {
     this.profileCollection.add(profile);
+  }
+
+  updateProfile(profile: Profile, uid: string) {
+    this.profileCollection.doc(uid).set(profile);
   }
 }

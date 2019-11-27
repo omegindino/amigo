@@ -32,28 +32,29 @@ export class SettingsComponent implements OnInit {
     };
   }
 
-  async ngOnInit() {
-    // Go through profiles and find user's own profile
-    this.db.profiles.forEach(profiles => profiles.forEach(profile => {
-      if (!this.auth.uid) {
-        return;
+  ngOnInit() {
+    // Get user profile by UID
+    this.db.getProfile(this.auth.uid).forEach(profile => {
+      const profileData = profile.data();
+      for (const property in profile.data()) {
+        if (profileData[property]) {
+          this.currentProfile[property] = profileData[property];
+        }
       }
-      if (profile.uid === this.auth.uid) {
-        this.currentProfile = profile;
-        return;
-      }
-    })).then(() => console.log('profile found', this.currentProfile));
-
-    setTimeout(() => console.log(this.currentProfile), 0);
-
-    // TODO: Make run after initializing currentProfile
-    this.settingsForm.setValue({
-      name: this.currentProfile.name,
-      imageUrl: this.currentProfile.imageUrl,
-      description: this.currentProfile.description,
-      location: this.currentProfile.location,
-      interests: '',
+      // Set form values
+      this.settingsForm.patchValue({
+        name: this.currentProfile.name,
+        imageUrl: this.currentProfile.imageUrl,
+        description: this.currentProfile.description,
+        location: this.currentProfile.location,
+        interests: '',
+      });
     });
+    return;
+  }
+
+  onSubmit() {
+    this.db.updateProfile(this.settingsForm.value, this.auth.uid);
   }
 
   updateSettings(event: Event) {
