@@ -28,7 +28,8 @@ export class SettingsComponent implements OnInit {
       age: NaN,
       location: '',
       description: '',
-      imageUrl: ''
+      imageUrl: '',
+      interests: ''
     };
   }
 
@@ -47,7 +48,7 @@ export class SettingsComponent implements OnInit {
         imageUrl: this.currentProfile.imageUrl,
         description: this.currentProfile.description,
         location: this.currentProfile.location,
-        interests: '',
+        interests: this.currentProfile.interests,
       });
     });
     return;
