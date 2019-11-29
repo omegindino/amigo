@@ -1,9 +1,8 @@
 <main class="mat-app-background">
     <section class="profiles">
-        <ng-template *ngFor="let profile of profiles | async; let i = index" [ngIf]="currentProfileId == i">
-            <!-- TODO: Hide own profile -->
+        <ng-template *ngFor="let profile of profiles | async; let i = index" [ngIf]="currentProfileId == i && profile.uid != auth.uid">
             <mat-card id="profile-{{i}}" class="profile">
-                <mat-card-title>
+                <mat-card-title [routerLink]="['profile', profile.uid]">
                     <span class="name">{{ profile.name }}</span>
                     <span *ngIf="profile.age" class="age">, {{ profile.age }}</span>
                 </mat-card-title>
