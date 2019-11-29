@@ -63,8 +63,4 @@ export class SettingsComponent implements OnInit {
     this.db.updateProfile(profileToSubmit, this.auth.uid);
   }
 
-  updateSettings(event: Event) {
-    console.log(event);
-  }
-
 }

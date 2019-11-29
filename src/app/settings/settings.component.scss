@@ -12,11 +12,4 @@ form {
     width: 80%;
     max-width: 30em;
     margin: 0 auto;
-    #buttons {
-        display: flex;
-        justify-content: space-between;
-        button {
-            min-width: 33%;
-        }
-    }
 }
