@@ -57,6 +57,7 @@ export class SettingsComponent implements OnInit {
   }
 
   onSubmit() {
+    // Split comma separated list of interests to array for submitting
     const profileToSubmit = this.settingsForm.value;
     profileToSubmit.interests = profileToSubmit.interests.split(', ');
     this.db.updateProfile(profileToSubmit, this.auth.uid);
