@@ -26,10 +26,11 @@ export const updateDocument = functions.firestore.document('users/{uid}').onUpda
 // Create document in database on account creation
 export const createDocument = functions.auth.user().onCreate(user => {
     const collection = db.collection('users');
-    // Query for documents matching user
-    collection.where('uid', '==', user.uid).get().then(snapshot => {
+    const doc = collection.doc(user.uid);
+    // Query for document matching user
+    doc.get().then(snapshot => {
         // If no results are returned, user can be added to the database
-        if (snapshot.empty) {
+        if (!snapshot.exists) {
             console.log('No matching documents.');
             // Create document for user
             collection.doc(user.uid).set({
@@ -47,9 +48,7 @@ export const createDocument = functions.auth.user().onCreate(user => {
             return;
         }
         // Else log the user's document
-        snapshot.forEach(doc => {
-            console.log(doc.id, '=>', doc.data());
-        });
+        console.log(doc.id, '=>', doc.get());
     }).catch(err => {
         console.log('Error getting documents', err);
     });
@@ -58,21 +57,19 @@ export const createDocument = functions.auth.user().onCreate(user => {
 // Delete user document on account deletion
 export const deleteDocument = functions.auth.user().onDelete(user => {
     const collection = db.collection('users');
-    collection.where('uid', '==', user.uid).get().then(snapshot => {
+    const doc = collection.doc(user.uid);
+    doc.get().then(snapshot => {
         // If no document exists for user, return
-        if (snapshot.empty) {
+        if (!snapshot.exists) {
             console.log('No database entry for user ID: ', user.uid);
             return;
         }
-        // Else delete any matches
-        snapshot.forEach(doc => {
-            doc.ref.delete().then(res => {
-                console.log('Deleted document');
-            }).catch(err => {
-                console.log('Error deleting document', err);
-            });
-        })
+        doc.delete().then(res => {
+            console.log('Deleted document');
+        }).catch(err => {
+            console.log('Error deleting document', err);
+        });
     }).catch(err => {
-        console.log('Error getting documents', err);
+        console.log('Error getting document', err);
     });
 });
