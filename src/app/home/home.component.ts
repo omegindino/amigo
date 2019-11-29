@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Get number of profiles
-    this.afs.profileCollection.snapshotChanges().forEach(c => this.profileCount = c.length);
+    // Get number of profiles                    // Subtract one since user's own profile is hidden
+    this.afs.profileCollection.snapshotChanges().forEach(c => this.profileCount = c.length - 1);
   }
 
   like(profile: Profile) {
