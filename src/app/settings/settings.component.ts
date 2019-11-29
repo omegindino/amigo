@@ -30,7 +30,7 @@ export class SettingsComponent implements OnInit {
       location: '',
       description: '',
       imageUrl: '',
-      interests: ''
+      interests: []
     };
   }
 
@@ -50,14 +50,16 @@ export class SettingsComponent implements OnInit {
         imageUrl: this.currentProfile.imageUrl,
         description: this.currentProfile.description,
         location: this.currentProfile.location,
-        interests: this.currentProfile.interests,
+        interests: this.currentProfile.interests.join(', '),
       });
     });
     return;
   }
 
   onSubmit() {
-    this.db.updateProfile(this.settingsForm.value, this.auth.uid);
+    const profileToSubmit = this.settingsForm.value;
+    profileToSubmit.interests = profileToSubmit.interests.split(', ');
+    this.db.updateProfile(profileToSubmit, this.auth.uid);
   }
 
   updateSettings(event: Event) {
