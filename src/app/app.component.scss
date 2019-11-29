@@ -94,7 +94,14 @@ main {
         border-radius: 50%;
     }
     mat-list-item {
+        cursor: default;
         padding: .7em;
+    }
+    mat-list-item:hover {
+        color: $warn;
+        img {
+            border: 2px solid $warn;
+        }
     }
     #onlineList {
         padding: 0;
