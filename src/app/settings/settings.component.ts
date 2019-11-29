@@ -14,6 +14,7 @@ export class SettingsComponent implements OnInit {
   currentProfile: Profile;
   settingsForm = new FormGroup({
     name: new FormControl(''),
+    age: new FormControl(''),
     imageUrl: new FormControl(''),
     description: new FormControl(''),
     location: new FormControl(''),
@@ -45,6 +46,7 @@ export class SettingsComponent implements OnInit {
       // Set form values
       this.settingsForm.patchValue({
         name: this.currentProfile.name,
+        age: this.currentProfile.age,
         imageUrl: this.currentProfile.imageUrl,
         description: this.currentProfile.description,
         location: this.currentProfile.location,
