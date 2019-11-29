@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Profile } from '../profile';
 import { DatabaseService } from '../database.service';
-import { Data } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { throwMatDuplicatedDrawerError } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +13,22 @@ export class HomeComponent implements OnInit {
   profiles: Observable<Profile[]>;
   currentProfileId = 0;
   allProfilesViewed = false;
-  profileCount: number;
+  profileCount = 0;
 
   constructor(public afs: DatabaseService, public auth: AuthService) {
     this.profiles = this.afs.profiles;
   }
 
   ngOnInit() {
-    // Get number of profiles                    // Subtract one since user's own profile is hidden
-    this.afs.profileCollection.snapshotChanges().forEach(c => this.profileCount = c.length - 1);
+    // Get number of profiles
+    this.afs.profileCollection.snapshotChanges().forEach(collection => {
+      collection.forEach(profile => {
+        // Don't count user's own profile as it is hidden
+        if (profile.payload.doc.data().uid !== this.auth.uid) {
+          this.profileCount++;
+        }
+      });
+    });
   }
 
   like(profile: Profile) {

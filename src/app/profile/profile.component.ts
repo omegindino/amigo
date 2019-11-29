@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../profile';
 import { DatabaseService } from '../database.service';
 import { ActivatedRoute } from '@angular/router';
-import { ConsoleReporter } from 'jasmine';
 import { AuthService } from '../auth.service';
 
 @Component({
