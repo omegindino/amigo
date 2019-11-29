@@ -5,4 +5,5 @@ export interface Profile {
     location: string;
     description: string;
     imageUrl: string;
+    interests: string[];
 }

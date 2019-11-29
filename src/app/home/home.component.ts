@@ -4,6 +4,7 @@ import { Profile } from '../profile';
 import { DatabaseService } from '../database.service';
 import { Data } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { throwMatDuplicatedDrawerError } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
