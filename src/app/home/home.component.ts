@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
     this.profiles = this.afs.profiles;
   }
 
-  // FIXME: Profiles do not load if user navigates away from home and then back
   async ngOnInit() {
     // Get user's profile
     await this.afs.getProfile(this.auth.uid).forEach(p => {
