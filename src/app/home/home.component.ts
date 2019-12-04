@@ -29,12 +29,17 @@ export class HomeComponent implements OnInit {
     this.profiles.forEach(profiles => {
       // Loop through all profiles
       profiles.forEach(profile => {
-        // If profile has any common interests with user, add profile to matchedProfiles
-        if (this.myProfile.interests.some(interest => profile.interests.includes(interest))) {
-          // Do not add user's own profile
-          if (profile.uid !== this.myProfile.uid) {
-            this.matchedProfiles.push(profile);
+        // Use try/catch to prevent loop from stopping if interests cannot be accessed
+        try {
+          // If profile has any common interests with user, add profile to matchedProfiles
+          if (this.myProfile.interests.some(interest => profile.interests.includes(interest))) {
+            // Do not add user's own profile
+            if (profile.uid !== this.myProfile.uid) {
+              this.matchedProfiles.push(profile);
+            }
           }
+        } catch (e) {
+          console.log(e);
         }
       });
     });
