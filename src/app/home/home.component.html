@@ -1,6 +1,6 @@
 <main class="mat-app-background">
     <section class="profiles">
-        <ng-template *ngFor="let profile of profiles | async; let i = index" [ngIf]="currentProfileId == i && profile.uid != auth.uid">
+        <ng-template *ngFor="let profile of matchedProfiles; let i = index" [ngIf]="currentProfileIndex == i">
             <mat-card id="profile-{{i}}" class="profile">
                 <mat-card-title [routerLink]="['profile', profile.uid]">
                     <span class="name">{{ profile.name }}</span>
@@ -27,7 +27,7 @@
             </mat-card>
         </ng-template>
         <ng-template [ngIf]="allProfilesViewed">
-            <h2>You have viewed all profiles!</h2>
+            <h2>You have viewed all matching profiles!</h2>
         </ng-template>
     </section>
 </main>
