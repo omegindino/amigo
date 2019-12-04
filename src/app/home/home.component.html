@@ -1,15 +1,25 @@
 <main class="mat-app-background">
     <section class="profiles">
-        <ng-template *ngFor="let profile of profiles | async; let i = index" [ngIf]="currentProfileId == i">
-            <!-- TODO: Hide own profile -->
+        <ng-template *ngFor="let profile of profiles | async; let i = index" [ngIf]="currentProfileId == i && profile.uid != auth.uid">
             <mat-card id="profile-{{i}}" class="profile">
-                <mat-card-title>
-                    <span class="name">{{ profile.name }}</span>,
-                    <span class="age">{{ profile.age }}</span>
+                <mat-card-title [routerLink]="['profile', profile.uid]">
+                    <span class="name">{{ profile.name }}</span>
+                    <span *ngIf="profile.age" class="age">, {{ profile.age }}</span>
                 </mat-card-title>
                 <mat-card-subtitle class="location">{{ profile.location }}</mat-card-subtitle>
                 <img mat-card-image src="{{ profile.imageUrl }}" alt="{{ profile.name }}">
-                <mat-card-content>{{ profile.description }}</mat-card-content>
+                <mat-card-content>
+                    <section class="profile-description">
+                        <h3>Description</h3>
+                        {{ profile.description }}
+                    </section>
+                    <section class="profile-interests">
+                        <h3>Interests</h3>
+                        <ul>
+                            <li *ngFor="let interest of profile.interests">{{ interest }}</li>
+                        </ul>
+                    </section>
+                </mat-card-content>
                 <mat-card-actions>
                     <button mat-raised-button color="primary" (click)="like(profile)">Like</button>
                     <button mat-raised-button color="accent" (click)="nextProfile()">Next</button>

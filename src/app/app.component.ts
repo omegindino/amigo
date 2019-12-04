@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import {
   Event,
@@ -14,7 +14,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'amigo';
   friendsCount: number;
   // to do: make this list so that the users here automatically get added to the page
@@ -54,5 +54,9 @@ export class AppComponent {
   }
   logout() {
     this.authService.logout();
+  }
+  // Set user UID on init
+  ngOnInit() {
+    this.authService.setUid();
   }
 }

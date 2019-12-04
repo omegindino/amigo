@@ -17,9 +17,18 @@ export class AuthService {
   }
   async login() {
     await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    this.uid = this.afAuth.auth.currentUser.uid;
+    this.setUid();
   }
   logout() {
     this.afAuth.auth.signOut();
+  }
+  // Store user UID
+  setUid() {
+    this.afAuth.user.forEach(user => {
+      if (!user) {
+        return;
+      }
+      this.uid = user.uid;
+    });
   }
 }

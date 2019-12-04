@@ -13,4 +13,24 @@ main {
     width: 80%;
     max-width: 20em;
     margin: 0 auto;
+    // User profile name and age
+    mat-card-title {
+        cursor: pointer;
+    }
+    // List of interests
+    .profile-interests {
+        ul {
+            list-style: none;
+            padding: 0;
+            li {
+                display: inline;
+                &::after {
+                    content: ", ";
+                }
+                &:last-child::after {
+                    content: "";
+                }
+            }
+        }
+    }
 }
